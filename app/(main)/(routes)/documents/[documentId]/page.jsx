@@ -10,6 +10,7 @@ import { useMemo } from "react";
 import Image from "next/image";
 import Banner from "../../../_components/Banner";
 import MenuBar from "../../../_components/menu";
+import { Spinner } from "../../../../../components/spinner";
 
 const DocumentIdPage = () => {
   const params = useParams();
@@ -33,6 +34,13 @@ const DocumentIdPage = () => {
   };
 
   document.title = theDocument?.title;
+  if (theDocument === undefined) {
+    return (
+      <div className="h-screen w-screen relative flex items-center justify-center  bg-white  dark:bg-[#1f1f1f]">
+        <Spinner size="xxlg" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -45,9 +53,8 @@ const DocumentIdPage = () => {
         <MenuBar preview={false} />
       </div>
 
-      <Banner imageURL={theDocument?.coverImage} />
-
       {theDocument?.isArchived && <Delete />}
+      <Banner imageURL={theDocument?.coverImage} />
 
       <Toolbar
         theTitle={theDocument?.title}
