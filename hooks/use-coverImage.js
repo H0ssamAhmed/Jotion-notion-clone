@@ -1,0 +1,14 @@
+import { create } from "zustand";
+
+
+const useCoverImage = () => {
+
+    create((set) => ({
+        url: undefined,
+        isOpen: false,
+        onOpen: () => set({ isOpen: true, url: undefined }),
+        onClose: () => set({ isOpen: false, url: undefined }),
+        onReplace: (url) => set({ isOpen: true, url }),
+    }));
+}
+export default useCoverImage
