@@ -55,7 +55,6 @@ const Toolbar = ({ Icon, preview }) => {
               >
                 {document.icon}
               </IconPicker>
-              {/* {!preview && */}
               <Button
                 onClick={removeIcon}
                 className="text-muted-foreground group-hover:opacity-100 opacity-30 text-xs p-2 rounded-full w-fit h-8"
@@ -64,7 +63,6 @@ const Toolbar = ({ Icon, preview }) => {
                 <X
                   className="h-4 w-4" />
               </Button>
-              {/* } */}
             </>
           }
           {!preview && !document?.icon &&

@@ -5,9 +5,6 @@ import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { useParams } from 'next/navigation';
 import { Button } from '../../../components/ui/button';
-import MenuBar from "./menu";
-import Publish from './Publish';
-
 
 const Title = ({ theTitle, Icon, preview }) => {
   const params = useParams()

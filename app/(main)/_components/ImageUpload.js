@@ -31,9 +31,6 @@ export default function SingleImageDropzoneUsage({ imageURL, imagePreview }) {
             try {
                 const res = await edgestore.publicFiles.upload({
                     file
-                    // options: {
-                    //     replaceTargetUrl: res.url,
-                    // },
                 });
                 await updateDocument({
                     id: params.documentId,

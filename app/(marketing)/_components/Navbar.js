@@ -3,7 +3,7 @@ import useScrollTop from '../../../hooks/use-scroll-top';
 import React from 'react';
 import Logo from './Logo';
 import { Button } from "../../../components/ui/button";
-import { ModeToggle, ModeToggleSimple } from '../../../components/mode-toggle';
+import { ModeToggleSimple } from '../../../components/mode-toggle';
 import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import { Spinner } from '../../../components/spinner';
 import Link from 'next/link';
@@ -22,7 +22,6 @@ const Navbar = () => {
             <div className='flex justify-between items-center  w-full sm:w-fit'  >
 
                 <div className='flex justify-between items-center w-full sm:w-fit gap-4'>
-                    {/* <ModeToggle /> */}
                     <ModeToggleSimple />
                     {!user.isSignedIn && !loaderHook && (
                         <>

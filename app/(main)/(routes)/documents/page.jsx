@@ -52,7 +52,6 @@ const DocumentsPage = () => {
         <PlusCircleIcon className="h-4 w-4 mr-2" />
         create a note
       </Button>
-      <ModeToggleSimple />
     </div>
   );
 };

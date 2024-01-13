@@ -8,7 +8,6 @@ import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import Banner from "../../../../(main)/_components/Banner";
-import { ModeToggleSimple } from "../../../../../components/mode-toggle";
 import MenuBar from "../../../../(main)/_components/menu";
 import ErrorPublic from "../../../errorPublic";
 import { Spinner } from "../../../../../components/spinner";
@@ -24,8 +23,6 @@ const DocumentIdPage = () => {
   const theDocument = useQuery(api.documents.getById, {
     documentId: params.documentId,
   });
-
-  const onContentChange = () => window.alert("Can Not Change This Page?");
 
   document.title = theDocument?.title;
 
@@ -60,11 +57,7 @@ const DocumentIdPage = () => {
             preview={true}
           />
           <div className="md:max-w-3xl lg:max-w-4xl">
-            <Editor
-              editable={false}
-              // onChange={onContentChange}
-              initialContent={theDocument?.content}
-            />
+            <Editor editable={false} initialContent={theDocument?.content} />
           </div>
         </>
       ) : (

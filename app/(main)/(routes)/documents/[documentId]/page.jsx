@@ -7,7 +7,6 @@ import { api } from "../../../../../convex/_generated/api";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-import Image from "next/image";
 import Banner from "../../../_components/Banner";
 import MenuBar from "../../../_components/menu";
 import { Spinner } from "../../../../../components/spinner";
@@ -61,12 +60,10 @@ const DocumentIdPage = () => {
         icon={theDocument?.icon}
         preview={false}
       />
-      {/* <div className="max-w-[40rem] lg:max-w-[70rem]"> */}
       <Editor
         onChange={onContentChange}
         initialContent={theDocument?.content}
       />
-      {/* </div> */}
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { Copy, CopyCheck, Globe, Globe2 } from 'lucide-react'
 import { useOrigin } from '../../../hooks/use-origin'
 import { useMutation, useQuery } from 'convex/react'
 import { api } from '../../../convex/_generated/api'
-import { useParams } from 'next/navigation'
 import { toast } from 'sonner'
 
 const Publish = ({ Data }) => {
