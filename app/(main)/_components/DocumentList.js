@@ -117,6 +117,8 @@ const DocumentList = ({ parentDeocumentId }) => {
               Icon={FileIcon}
               documentIcon={document.icon}
               active={params.documentId === document._id}
+              IsFavourite={document.IsFavourite}
+
             />
           </div >
         ))}
