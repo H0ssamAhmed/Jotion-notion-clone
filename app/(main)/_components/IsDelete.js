@@ -25,9 +25,9 @@ export const Delete = () => {
 
     const deleteDocument = useMutation(api.documents.deleteDocument)
 
-    const deleteForEvery = (id) => {
-        const promise = deleteDocument({ id })
-            .then(() => router.push('/documents'))
+    const deleteForEver = () => {
+        const promise = deleteDocument({ id: params.documentId })
+            .then(() => router.push('/documents'));
 
         toast.promise(promise, {
             loading: "Deleting forever...",
@@ -65,7 +65,7 @@ export const Delete = () => {
                                         Cancel
                                     </DropdownMenuItem>
                                     <DropdownMenuItem
-                                        onClick={() => deleteForEvery(params.documentId)}
+                                        onClick={deleteForEver}
 
                                         className="cursor-pointer bg-black text-white dark:bg-white dark:text-black"
                                     >

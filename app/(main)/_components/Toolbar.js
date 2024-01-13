@@ -15,8 +15,6 @@ const Toolbar = ({ Icon, preview }) => {
     documentId: params.documentId,
   });
 
-  console.log(preview, 'preview');
-  console.log(!preview, '!preview');
   const update = useMutation(api.documents.update)
 
   const handlIconChange = (selectedIcon) => {
@@ -45,7 +43,7 @@ const Toolbar = ({ Icon, preview }) => {
         <div className='flex group items-center gap-2 text-[40px] w-full ml-4 mt-1 justify-start md:justify-start flex-wrap'>
           {document?.icon && preview &&
             <p>
-              {document.icon}
+              {document?.icon}
             </p>
           }
           {document?.icon && !preview &&
@@ -68,7 +66,7 @@ const Toolbar = ({ Icon, preview }) => {
           {!preview && !document?.icon &&
             <IconPicker
               onChange={(e) => handlIconChange(e)}>
-              {document.icon}
+              {document?.icon}
               <Button
                 className="text-muted-foreground group-hover:opacity-100 opacity-30 text-xs flex"
                 variant="secondary"
