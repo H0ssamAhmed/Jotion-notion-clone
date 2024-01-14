@@ -20,3 +20,4 @@ You can access the live demo of this app by following this link: [Jotion](https:
 - Convex
 - clerk
 - shad cn Library
+- blocknotejs Library
