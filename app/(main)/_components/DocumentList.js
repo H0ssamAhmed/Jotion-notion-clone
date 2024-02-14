@@ -1,6 +1,6 @@
 "use client"
 import { useMutation, useQuery } from 'convex/react'
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import { api } from '../../../convex/_generated/api'
 import { useParams, useRouter } from 'next/navigation'
 import Item from './Item'
@@ -9,6 +9,7 @@ import { cn } from '../../../lib/utils'
 import LoadingSkeleton from "./LoadingSkeleton"
 import { toast } from 'sonner'
 import { Button } from '../../../components/ui/button'
+import { useUser } from '@clerk/clerk-react'
 
 const DocumentList = ({ parentDeocumentId }) => {
 
@@ -16,10 +17,13 @@ const DocumentList = ({ parentDeocumentId }) => {
   const router = useRouter()
   const [hideFavorite, setHideFavorite] = useState(false)
   const [hidePrivate, setHidePrivate] = useState(false)
+  const { user } = useUser()
+
 
 
   const create = useMutation(api.documents.create);
   const documents = useQuery(api.documents.getSidebar, {
+    userId: user.id,
     parentDeocument: parentDeocumentId,
   })
 
@@ -28,8 +32,9 @@ const DocumentList = ({ parentDeocumentId }) => {
     event.stopPropagation()
 
 
-    const promise = create({ title: "Untitled" })
+    const promise = create({ title: "untitle", userId: user.id })
       .then((documentId) => router.push(`/documents/${documentId}`))
+
     toast.promise(promise, {
 
       loading: "Creating new note",
@@ -37,7 +42,6 @@ const DocumentList = ({ parentDeocumentId }) => {
       error: "There is Error",
     });
   };
-
 
   const favoriteDocument = documents?.filter((favs) => {
     return favs.IsFavourite

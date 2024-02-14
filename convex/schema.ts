@@ -4,10 +4,10 @@ import { v } from "convex/values";
 export default defineSchema({
   documents: defineTable({
     title: v.string(),
-    userId: v.optional(v.union(v.string(),v.number())),
+    userId: v.string(),
     isArchived: v.boolean(),
     isPublished: v.boolean(),
-    IsFavourite:v.boolean(),
+    IsFavourite: v.boolean(),
     parentDocument: v.optional(v.id("documents")),
     content: v.optional(v.string()),
     coverImage: v.optional(v.string()),

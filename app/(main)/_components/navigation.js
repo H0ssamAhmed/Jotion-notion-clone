@@ -18,10 +18,11 @@ import { toast } from 'sonner'
 import DocumentList from './DocumentList'
 import { usePathname, useRouter } from 'next/navigation'
 import TrashBox from '../_components/TrashBox'
+import { useUser } from '@clerk/clerk-react'
 const Navigation = () => {
-
   const isMobile = useMediaQuery("(max-width: 768px)");
   const pathname = usePathname()
+  const { user } = useUser()
 
   const router = useRouter()
 
@@ -39,7 +40,7 @@ const Navigation = () => {
 
   const handleCreate = (event) => {
     event.stopPropagation()
-    const promise = create({ title: "Untitled" })
+    const promise = create({ title: "untitle", userId: user.id })
       .then((documentId) => router.push(`/documents/${documentId}`))
 
     toast.promise(promise, {
