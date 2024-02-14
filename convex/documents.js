@@ -126,7 +126,6 @@ export const create = mutation({
   },
 
   handler: async (ctx, args) => {
-    // const user = await ctx.auth.getUserIdentity().issuer
     const document = await ctx.db.insert("documents", {
       title: args.title,
       parentDocument: args.parentDocument,

@@ -26,7 +26,6 @@ const DocumentList = ({ parentDeocumentId }) => {
     userId: user.id,
     parentDeocument: parentDeocumentId,
   })
-
   const handleCreate = (event) => {
     if (hidePrivate) setHidePrivate(false)
     event.stopPropagation()
