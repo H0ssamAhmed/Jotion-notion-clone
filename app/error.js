@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Error = () => {
     return (
         <div className='flex items-center justify-center text-center h-screen w-screen'>
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col  gap-4'>
                 <Image
                     width={500}
                     height={500}
