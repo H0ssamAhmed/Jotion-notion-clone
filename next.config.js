@@ -7,7 +7,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'assets.example.com',
                 port: '',
-                pathname: '/account123/**',
+                pathname: '/account1234/**',
             },
         ],
     }

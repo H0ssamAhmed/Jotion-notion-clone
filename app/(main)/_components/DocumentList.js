@@ -37,7 +37,7 @@ const DocumentList = ({ parentDeocumentId }) => {
     toast.promise(promise, {
 
       loading: "Creating new note",
-      success: "New note created!",
+      success: "New note created!!",
       error: "There is Error",
     });
   };
