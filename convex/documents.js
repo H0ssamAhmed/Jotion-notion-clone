@@ -67,12 +67,15 @@ export const favorite = mutation({
 })
 
 export const getTrash = query({
-  handler: async (ctx) => {
+  args: {
+    userId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    // console.log(args.userId)
     const documents = await ctx.db
       .query("documents")
-      .filter((q) =>
-        q.eq(q.field("isArchived"), true),
-      )
+      .withIndex('by_user', (q) => q.eq("userId", args.userId))
+      .filter((q) => q.eq(q.field("isArchived"), true))
       .order("desc")
       .collect();
     return documents;

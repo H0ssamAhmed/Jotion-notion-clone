@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { use } from 'react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '../../../components/ui/dropdown-menu'
 import { Trash2, Trash, Undo } from 'lucide-react'
 import { useMutation, useQuery } from 'convex/react'
 import { api } from '../../../convex/_generated/api'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import { useUser } from '@clerk/clerk-react'
 
 const TrashBox = () => {
+  const { user } = useUser()
   const router = useRouter()
 
 
-  const archivedDocuments = useQuery(api.documents.getTrash)
+  const archivedDocuments = useQuery(api.documents.getTrash, {
+    userId: user?.id
+  })
+  console.log(archivedDocuments);
   const Unarchived = useMutation(api.documents.Unarchived)
 
   const restoeFormTrash = (id) => {
