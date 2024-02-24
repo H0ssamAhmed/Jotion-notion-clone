@@ -40,7 +40,10 @@ const Navigation = () => {
 
   const handleCreate = (event) => {
     event.stopPropagation()
-    const promise = create({ title: "untitle", userId: user.id })
+    const promise = create({
+      title: "untitle",
+      userId: user.id
+    })
       .then((documentId) => router.push(`/documents/${documentId}`))
 
     toast.promise(promise, {

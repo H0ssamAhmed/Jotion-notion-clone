@@ -18,7 +18,10 @@ const DocumentsPage = () => {
   document.title = `${user.firstName}'s Jotion | workspace`;
 
   const onClick = () => {
-    const promise = create({ title: "untitle", userId: user.id })
+    const promise = create({
+      title: "untitle",
+      userId: user.id
+    })
       .then((documentId) =>
         router.push(`/documents/${documentId}`)
       );
