@@ -6,7 +6,7 @@ A note-taking app
 
 ## Demo
 
-You can access the live demo of this app by following this link: [Jotion](https://note-taking-app-peach-psi.vercel.app/)
+You can access the live demo of this app by following this link: [Jotion](https://jotion-notion-clone-lkmi9jmb1-h0ssamahmed.vercel.app/)
 
 ## Features
 
